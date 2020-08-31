@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   get 'welcome/index' 
   root 'welcome#index'
 
-  resources :articles
+  # This creates comments as a nested resource within articles. 
+  #  This is another part of capturing the hierarchical(分层的) relationship that exists between articles and comments.
+  resources :articles do
+    resources :comments
+  end
 end
